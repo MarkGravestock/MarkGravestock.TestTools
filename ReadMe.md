@@ -34,10 +34,28 @@ To supply [Indirect Inputs]() to the [SUT](http://xunitpatterns.com/SUT.html) we
 as both types of [Test Doubles](http://xunitpatterns.com/Test%20Double%20Patterns.html).
 
 - [Moq](https://github.com/Moq/moq4). Default choice, as it says no wierd record/replay which supports clean [AAA] style tests.
+- [AutoFixture.AutoMoq]
+
+#### Test Data
+
+Creating Test Data for automated tests in a way that highlights the relevant part of the inputs in the Arrange phase of the test is important
+and the following libraries can help
+
+- [AutoFixture](https://github.com/AutoFixture/AutoFixture). Helps to create anonymous variables to simplify the Arrange phase, and allow the focus to be on
+the values that are relevant to the specific test. It can support the [Test Data Builder Pattern](http://www.natpryce.com/articles/000714.html) and can also support 
+[SUT Factory](https://blog.ploeh.dk/2009/02/13/SUTFactory/). Supporting a SUT Factory is important as it allows the reduction of duplication of SUT creation [see SUT API Encapsulation](http://xunitpatterns.com/Test%20Utility%20Method.html#SUT%20API%20Encapsulation).
+- [AutoFixture.Xunit](https://www.nuget.org/packages/AutoFixture.Xunit2). Creates anonymous variables for XUnit Theory. This can cut down the amount of boiler plate code
+again by supplying anonymous variables and SUTs as parameters to the test methods.
+- [AutoFixture.AutoMoq](https://www.nuget.org/packages/AutoFixture.AutoMoq). Allows AutoFixture to create mock objects using moq. It acts as an [Automocking Container](https://blog.ploeh.dk/2010/08/19/AutoFixtureasanauto-mockingcontainer).
 
 #### ATDD Tools
 
 [Examples are here](https://github.com/MarkGravestock/SpecByExampleCSharp)
+
+#### TODO
+
+- Contract Testing tools - e.g. Pact
+
 
 
 

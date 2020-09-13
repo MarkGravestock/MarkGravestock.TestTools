@@ -13,18 +13,24 @@ namespace MarkGravestock.TestTools
             var accountRepository = new Mock<IAccountRepository>();
             var account = new Account {Id = Guid.NewGuid(), Balance = 50m};
             
+            var sut = new WithdrawlFeature();
+            
             accountRepository.Setup(x => x.GetAccountById(It.Is<Guid>(y => y == account.Id))).Returns(account);
             
             Account accountAfterTransfer = null;
 
             accountRepository.Setup(x => x.Update(It.Is<Account>(y => y.Id == account.Id))).Callback<Account>(z => accountAfterTransfer = z);
 
-            ExecuteWithdrawl(account, 25, accountRepository.Object);        
+            sut.Execute(account, 25, accountRepository.Object);        
             
             accountAfterTransfer.Balance.Should().Be(25);
         }
 
-        private void ExecuteWithdrawl(Account account, decimal amount, IAccountRepository accountRepository)
+    }
+
+    public class WithdrawlFeature
+    {
+        public void Execute(Account account, decimal amount, IAccountRepository accountRepository)
         {
             var accountToWithdraw = accountRepository.GetAccountById(account.Id);
 
