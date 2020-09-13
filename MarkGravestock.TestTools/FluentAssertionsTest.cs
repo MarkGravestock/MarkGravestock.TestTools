@@ -32,5 +32,18 @@ namespace MarkGravestock.TestTools
             
             calculation.ExecutionTime().Should().BeLessThan(200.Milliseconds());
         }
+        
+        private class Money
+        {
+            public enum CurrencyCode
+            {
+                GBP,
+                USD
+            }
+
+            public decimal Amount { get; set; }
+
+            public CurrencyCode Currency { get; set; }
+        }
     }
 }
