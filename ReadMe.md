@@ -1,3 +1,5 @@
+![CI](https://github.com/MarkGravestock/MarkGravestock.TestTools/workflows/CI/badge.svg)
+
 ### Test Tools
 
 This project includes samples using testing tools that I've used and/or are of interest. I also may include samples of features that I've used
