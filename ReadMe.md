@@ -55,6 +55,8 @@ again by supplying anonymous variables and SUTs as parameters to the test method
 #### TODO
 
 - Contract Testing tools - e.g. Pact
+- Architecture Verification Tests - e.g. [NetArchTest.Rules](https://github.com/BenMorris/NetArchTest)
+- Performance Testing Tools
 
 
 
